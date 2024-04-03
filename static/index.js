@@ -6,6 +6,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const transactionResponse = document.getElementById('transactionResponse');
     const chainResponse = document.getElementById('chainResponse');
 
+    // Function to set the price
+    function setPrice() {
+        const newPrice = document.getElementById('priceInput').value;
+        contract.methods.setPrice(newPrice).send({ from: '0x...' }) // Update with your MetaMask account address
+            .on('transactionHash', function(hash) {
+                console.log('Transaction Hash:', hash);
+            })
+            .on('receipt', function(receipt) {
+                console.log('Receipt:', receipt);
+            });
+    }
+
+    // Function to get the price
+    async function getPrice() {
+        const price = await contract.methods.getPrice().call();
+        document.getElementById('currentPrice').innerText = price;
+    }
+
     mineBtn.addEventListener('click', () => {
         fetch('/mine')
             .then(response => response.json())

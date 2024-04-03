@@ -36,7 +36,7 @@
             border: none;
             border-radius: 5px;
             box-sizing: border-box;
-            color: azure;
+            color: rgb(7, 8, 8);
         }
 
         button {
@@ -71,7 +71,6 @@
 </head>
 <body>
     <h1>Drug Traceability System</h1>
-    <img src="templates\background_drug.jpeg" alt="image">
     <div class="form-container">
         <h2>Mine a new block:</h2>
         <button id="mineBtn"onclick="redirectTomine()">Mine Block</button>
@@ -86,6 +85,7 @@
         <label for="drug_name">Drug Name:</label>
         <input type="text" id="drug_name" placeholder="Drug Name">
         <br>
+        
         <button id="createTransactionBtn">Create Transaction</button>
         <p id="transactionResponse"></p>
         <h2>Blockchain:</h2>
